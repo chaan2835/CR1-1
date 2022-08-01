@@ -1,15 +1,13 @@
 pipeline{
     agent any
-
-
     stages{
 		stage('Build') {
             		steps {
                 	sh 'mvn clean package '
            		     }
-            			}	
+            	}	
         }
-        stage('artifact uploading'){
+        stage('artifact uploading') {
             steps{
               nexusArtifactUploader artifacts:
 	      	[
@@ -30,4 +28,4 @@ pipeline{
             }
         }
     }
-}
+
