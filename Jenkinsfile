@@ -7,9 +7,9 @@ pipeline{
            		     }
             	}	
         }
-        stage('artifact uploading') {
-            steps{
-              nexusArtifactUploader artifacts:
+        stage('upload artifact to nexus'){
+            steps {
+                 nexusArtifactUploader artifacts:
 	      	[
 			[
 				artifactId: 'jb-hello-world-maven', 
@@ -24,7 +24,7 @@ pipeline{
 			nexusVersion: 'nexus3',
 			protocol: 'http', 
 			repository: 'CR1-1',
-			version: '0.2.0' 
+			version: '0.2.0'
             }
         }
     }
