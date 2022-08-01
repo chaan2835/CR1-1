@@ -9,7 +9,7 @@ pipeline{
            		     }
             			}	
         }
-        stage('artifact uploading'){
+        stage('artifact uploading') {
             steps{
               nexusArtifactUploader artifacts:
 	      	[
