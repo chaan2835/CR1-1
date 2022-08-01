@@ -6,7 +6,7 @@ pipeline{
                 	sh 'mvn clean package '
            		     }
             	}	
-        }
+        
         stage('artifact uploading') {
             steps{
               nexusArtifactUploader artifacts:
