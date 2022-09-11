@@ -6,11 +6,9 @@ pipeline{
                 	sh 'mvn clean package '
            		     }
             	}	
-<<<<<<< HEAD
+
         }
-=======
-        
->>>>>>> af0b35447f50688d1f644defc5619f8a089790fd
+  
         stage('artifact uploading') {
             steps{
               nexusArtifactUploader artifacts:
@@ -32,12 +30,4 @@ pipeline{
             }
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> ff512afc163a2ef2bed2648d11e30d6f5546fbf7
-=======
-
 }
->>>>>>> af0b35447f50688d1f644defc5619f8a089790fd
