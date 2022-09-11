@@ -7,7 +7,7 @@ pipeline{
            		     }
             	}	
 
-        }
+        
   
         stage('artifact uploading') {
             steps{
