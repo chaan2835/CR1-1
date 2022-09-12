@@ -32,7 +32,7 @@ pipeline{
 	stage('build docker image'){
 		steps {
 			script {	
-			sh 'docker build -t my-CR1-1 .'
+			sh 'docker build -t chaan2835/my-CR1-1 .'
 			}
 		}
 	}
