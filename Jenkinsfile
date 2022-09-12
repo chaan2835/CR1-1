@@ -36,5 +36,13 @@ pipeline{
 			}
 		}
 	}
-    }
+	stage ('pushing docker image'){
+		script {
+			withCredentials([string(credentialsId: 'chaan2835', variable: 'docker-ceds')]) {
+    			sh 'docker login -u chaan2835 -p ${docker-creds}'
+			sh 'docker push myapp'
+				}
+			}
+    		}	
+	}	
 }
