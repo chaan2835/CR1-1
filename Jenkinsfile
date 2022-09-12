@@ -29,5 +29,10 @@ pipeline{
 			version: '0.2.0' 
             }
         }
+	stage('build docker image') {
+		script {	
+			sh 'docker build -t my-CR1-1 .'
+			}
+		}
     }
 }
