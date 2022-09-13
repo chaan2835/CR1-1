@@ -9,9 +9,6 @@ pipeline{
                 	sh 'mvn clean package '
            		     }
             	}	
-
-        
-  
         stage('artifact uploading') {
             steps{
               nexusArtifactUploader artifacts:
@@ -32,15 +29,13 @@ pipeline{
 			version: '0.2.0' 
             }
         }
-	stage('build docker image'){
-		steps {
-				
-			sh 'docker build -t myapp:$BUILD_NUMBER .'
-			
-		}
-	}
-	stage ('log-in to docker'){
-		steps {
+		stage('build docker image'){
+			steps {
+				sh 'docker build -t myapp:$BUILD_NUMBER .'
+					}
+			}
+		stage('log-in to docker'){
+			steps {
 			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u  $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 
 			}
@@ -59,5 +54,3 @@ pipeline{
 			}
 		
 		}
-	
-}
