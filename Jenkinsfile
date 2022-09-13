@@ -43,7 +43,7 @@ pipeline{
 	
 	stage('pushing image'){
 		steps {
-			sh 'docker push myapp:$BUILD_NUMBER'
+			sh 'docker push chaan2835/myapp:$BUILD_NUMBER'
 				}
     			}
 		}	
