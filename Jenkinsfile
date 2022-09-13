@@ -31,7 +31,7 @@ pipeline{
         }
 		stage('build docker image'){
 			steps {
-				sh 'docker build -t myapp .'
+				sh 'docker build -t chaan2835/CR1-1_image .'
 					}
 			}
 		stage('log-in to docker'){
@@ -43,7 +43,7 @@ pipeline{
 	
 	stage('pushing image'){
 		steps {
-			sh 'docker push myapp'
+			sh 'docker push chaan2835/CR1-1_image'
 				}
     			}
 		}	
