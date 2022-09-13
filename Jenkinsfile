@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environment {
+    DOCKERHUB_CREDENTIALS= credentials('my-docker-creds')
+    }
     stages{
 		stage('Build') {
             		steps {
@@ -31,12 +34,12 @@ pipeline{
         }
 	stage('build docker image'){
 		steps {
-			script {	
-			sh 'docker build -t myapp:latest .'
-			}
+				
+			sh 'docker build -t myapp:$BUILD_NUMBER .'
+			
 		}
 	}
-	stage ('pushing docker image'){
+	stage ('log-in to docker'){
 		steps {
 			script {
 		withCredentials([string(credentialsId: 'chaan2835', variable: 'docker-creds')]) {
