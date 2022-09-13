@@ -31,7 +31,7 @@ pipeline{
         }
 		stage('build docker image'){
 			steps {
-				sh 'docker build -t myapp:$BUILD_NUMBER .'
+				sh 'docker build -t myapp .'
 					}
 			}
 		stage('log-in to docker'){
@@ -43,7 +43,7 @@ pipeline{
 	
 	stage('pushing image'){
 		steps {
-			sh 'docker push chaan2835/myapp:$BUILD_NUMBER'
+			sh 'docker push chaan2835/myapp'
 				}
     			}
 		}	
