@@ -41,15 +41,23 @@ pipeline{
 	}
 	stage ('log-in to docker'){
 		steps {
-			script {
-		withCredentials([string(credentialsId: 'chaan2835', variable: 'docker-creds')]) {
-		 sh 'docker login -u chaan2835 -p ${docker-creds}'
+			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u  $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 
-}
+			}
+		}
 	
-		sh 'docker push myapp'
+	stage('pushing image'){
+		steps {
+			sh 'docker push myapp:$BUILD_NUMBER'
 				}
-    			}	
+    			}
 		}	
+	post {
+		always {
+				sh 'docker logout'
+				}
+			}
+		
+		}
 	}
 }
